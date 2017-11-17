@@ -26,7 +26,7 @@ channel = section_softap:option(Value, "channel",  translate("Number of channel"
   channel.rmempty = false
   channel.optional = false
 
-authmode = s:option(ListValue, "authmode",  translate("Authorization mode"))
+authmode = section_softap:option(ListValue, "authmode",  translate("Authorization mode"))
   authmode.default = "AUTH_WPA_WPA2_PSK"
   authmode:value("AUTH_OPEN")
   authmode:value("AUTH_WEP")
@@ -77,7 +77,7 @@ gateway = section_ip:option(Value, "gateway",  translate("Gateway address"))
 --- Cryptography settings ---
 section_crypto = m:section(NamedSection, "crypto", "meshconfig", translate("Cryptography settings"))
 
-keylen = section_softap:option(Value, "keylen",  translate("Key length"))
+keylen = section_crypto:option(Value, "keylen",  translate("Key length"))
   keylen.default = 16
   keylen.datatype = "and(uinteger, min(0), max(16))"
   keylen.rmempty = false
