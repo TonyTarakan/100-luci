@@ -26,8 +26,25 @@ channel = section_softap:option(Value, "channel",  translate("Number of channel"
   channel.rmempty = false
   channel.optional = false
 
---- SIM info ---
+authmode = s:option(ListValue, "authmode",  translate("Authorization mode"))
+  authmode.default = "AUTH_WPA_WPA2_PSK"
+  authmode:value("AUTH_OPEN")
+  authmode:value("AUTH_WEP")
+  authmode:value("AUTH_WPA_PSK")
+  authmode:value("AUTH_WPA2_PSK")
+  authmode:value("AUTH_WPA_WPA2_PSK")
+  authmode:value("AUTH_MAX")
+  authmode.optional = false
+
+ssid_hidden = section_softap:option(Flag, "ssid_hidden", translate("Hidden AP"))
+  ssid_hidden.rmempty = false
+
+
+--- Station settings ---
 section_station = m:section(NamedSection, "station", "meshconfig", translate("Station settings"))
+
+enabled = section_softap:option(Flag, "enabled", translate("Hidden AP"))
+  enabled.rmempty = false
 
 ssid = section_station:option(Value, "ssid",  translate("SSID"))
   ssid.default = "AS100_STA"
@@ -40,6 +57,32 @@ password = section_station:option(Value, "password",  translate("Password"))
   password.password = true
   password.rmempty = false
   password.optional = false
+
+
+
+--- IP settings ---
+section_ip = m:section(NamedSection, "ip", "meshconfig", translate("IP settings"))
+
+ipaddr = section_ip:option(Value, "ipaddr",  translate("IP address"))
+  ipaddr.datatype = "ip4addr"
+
+ipmask = section_ip:option(Value, "ipmask",  translate("IP mask"))
+  ipmask.datatype = "ip4addr"
+
+gateway = section_ip:option(Value, "gateway",  translate("Gateway address"))
+  gateway.datatype = "ip4addr"
+
+
+
+--- Cryptography settings ---
+section_crypto = m:section(NamedSection, "crypto", "meshconfig", translate("Cryptography settings"))
+
+keylen = section_softap:option(Value, "keylen",  translate("Key length"))
+  keylen.default = 16
+  keylen.datatype = "and(uinteger, min(0), max(16))"
+  keylen.rmempty = false
+  keylen.optional = false
+
 
 
 
