@@ -3,7 +3,7 @@
 
 require 'luci.sys'
 
-m = Map("meshconfig", "Meshconfig", translate("ESP8266 management"))
+m = Map("meshconfig", "Meshconfig", translate("Mesh network configurations"))
 
 --- Software AP settings ---
 section_softap = m:section(NamedSection, "softap", "meshconfig", translate("Software AP settings"))  
@@ -43,7 +43,7 @@ ssid_hidden = section_softap:option(Flag, "ssid_hidden", translate("Hidden AP"))
 --- Station settings ---
 section_station = m:section(NamedSection, "station", "meshconfig", translate("Station settings"))
 
-enabled = section_softap:option(Flag, "enabled", translate("Hidden AP"))
+enabled = section_station:option(Flag, "enabled", translate("Enable connection"))
   enabled.rmempty = false
 
 ssid = section_station:option(Value, "ssid",  translate("SSID"))
