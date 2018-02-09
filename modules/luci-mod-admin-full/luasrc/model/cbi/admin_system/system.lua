@@ -20,7 +20,7 @@ s.addremove = false
 
 s:tab("general",  translate("General Settings"))
 s:tab("logging",  translate("Logging"))
-s:tab("language", translate("Language and Style"))
+s:tab("language", translate("System Language"))
 
 
 --
@@ -128,7 +128,7 @@ function o.write(self, section, value)
 	m.uci:set("luci", "main", "lang", value)
 end
 
-
+--[[
 o = s:taboption("language", ListValue, "_mediaurlbase", translate("Design"))
 for k, v in pairs(conf.themes) do
 	if k:sub(1, 1) ~= "." then
@@ -143,7 +143,7 @@ end
 function o.write(self, section, value)
 	m.uci:set("luci", "main", "mediaurlbase", value)
 end
-
+]]
 
 --
 -- NTP
