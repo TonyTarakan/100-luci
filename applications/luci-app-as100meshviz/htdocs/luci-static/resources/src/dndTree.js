@@ -280,7 +280,7 @@ treeJSON = d3.json("/flare.json", function(error, treeData) {
                     overlayInner = d3.select(".njg-overlay > .njg-inner"),
                     html = "<p><b>source</b>: " + (l.source.label || l.source.id) + "</p>";
                     html += "<p><b>target</b>: " + (l.target.label || l.target.id) + "</p>";
-                    html += "<p><b>cost</b>: " + l.cost + "</p>";
+                    html += "<p><b>RSSI</b>: " + l.rssi + "</p>";
                 if(l.properties) {
                     for(var key in l.properties) {
                         if(!l.properties.hasOwnProperty(key)) { continue; }
@@ -861,6 +861,16 @@ treeJSON = d3.json("/flare.json", function(error, treeData) {
         update(d);
         console.log("click");
         centerNode(d);
+
+        console.log(d.name);
+
+        var process = require('child_process');
+
+        //child = exec('/www/jsonstarcreator.lua ' + d.name,
+        process.exec('/www/jsonstarcreator.lua ' + d.name,function (err,stdout,stderr) {
+    
+        });
+        //$.ajax('/jsonstarcreator.lua '  + d.name);
 
         d3.netJsonGraph("/nodenetjson.json", {
                 el: "#net-container",

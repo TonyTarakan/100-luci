@@ -11,8 +11,8 @@ function index()
 	entry({"admin", "system", "system"}, cbi("admin_system/system"), _("System"), 1)
 	entry({"admin", "system", "clock_status"}, post_on({ set = true }, "action_clock_status"))
 
-	entry({"admin", "system", "admin"}, cbi("admin_system/admin"), _("Administration"), 2)
-
+	entry({"admin", "system", "admin"}, cbi("admin_system/admin"), _("System password"), 2)
+--[[
 	if fs.access("/bin/opkg") then
 		entry({"admin", "system", "packages"}, post_on({ exec = "1" }, "action_packages"), _("Software"), 10)
 		entry({"admin", "system", "packages", "ipkg"}, form("admin_system/ipkg"))
@@ -39,7 +39,7 @@ function index()
 	-- call() instead of post() due to upload handling!
 	entry({"admin", "system", "flashops", "restore"}, call("action_restore"))
 	entry({"admin", "system", "flashops", "sysupgrade"}, call("action_sysupgrade"))
-
+]]
 	entry({"admin", "system", "reboot"}, template("admin_system/reboot"), _("Reboot"), 90)
 	entry({"admin", "system", "reboot", "call"}, post("action_reboot"))
 end
