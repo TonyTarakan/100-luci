@@ -146,7 +146,8 @@
 <header>
 	<div class="container">
 		<span class="showSide"></span>
-		<a class="brand" href="#">RTU325R #<%=luci.sys.exec("getdevicesn") or "?"%></a>
+		 <a class="brand" href="#"><img height="30" style="padding-right:10px;vertical-align: middle;" src="<%=media%>/honeywell_logo.png"><span>RTU325R #<%=luci.sys.exec("getdevicesn") or "?"%></span></a>
+		<!--
 		<div class="pull-right">
 		<%
 		-- calculate the number of unsaved changes
@@ -168,7 +169,7 @@
 				<span class="label" id="xhr_poll_status_off" style="display:none"><span class="mobile-hide"><%:Auto Refresh%> </span><%:off%></span>
 			</span>
 		<% end %>
-		</div>
+		</div>-->
 	</div>
 </header>
 

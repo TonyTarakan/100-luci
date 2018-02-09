@@ -246,7 +246,8 @@ header > .container {
 }
 
 header > .container > .brand {
-    font-size: 1.4rem;
+    display: inline-grid;
+    font-size: 1.25rem;
     color: white;
     text-decoration: none;
     cursor: default;
@@ -1285,8 +1286,8 @@ body.lang_pl.node-main-login .cbi-value-title {
 
     .main-left {
         width: calc(0% + 13rem);
-        top: 3.5rem;
-        height: calc(100% - 3.5rem);
+        /*top: 3.5rem;
+        height: calc(100% - 3.5rem);*/
     }
 
     .main-right {
