@@ -20,7 +20,7 @@ s.addremove = false
 
 s:tab("general",  translate("General Settings"))
 s:tab("logging",  translate("Logging"))
-s:tab("language", translate("System Language"))
+s:tab("language", translate("Language"))
 
 
 --
